@@ -166,7 +166,7 @@
         rgba(17, 17, 17, 0.84) 30%,
         rgba(17, 17, 17, 0.5) 52%,
         rgba(17, 17, 17, 0.22) 78%,
-        rgba(17, 17, 17, 0.12) 100%
+        rgba(17, 17, 17, 0.28) 100%
       );
     }
 
@@ -197,9 +197,10 @@
     }
 
     .hero__inner {
-      width: min(1280px, 100%);
-      margin-inline: auto;
-    }
+  position: relative;
+  width: min(1280px, 100%);
+  margin-inline: auto;
+}
 
     .hero__wordmark {
       font-family: var(--font-wordmark);
@@ -304,6 +305,86 @@
     }
 
     .hero__success.is-visible { display: block; }
+    /* ─── Launch Card ─── */
+
+.hero__launch-card {
+  position: absolute;
+  right: 4rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 300px;
+  height: 380px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 32px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow:
+    0 35px 100px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  opacity: 0;
+  animation: fadeIn 1.4s ease 0.6s forwards;
+}
+
+.hero__launch-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 2rem;
+}
+
+.hero__launch-text {
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 1.5rem;
+}
+
+.hero__launch-number {
+  font-family: var(--font-wordmark);
+  font-size: 7.5rem;
+  line-height: 0.9;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+}
+
+.hero__launch-days {
+  font-size: 0.75rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+}
+
+@media (max-width: 1024px) {
+  .hero__launch-card {
+    position: static;
+    transform: none;
+    margin-top: 3rem;
+
+    width: 100%;
+    max-width: 320px;
+    height: 240px;
+  }
+
+  .hero__launch-number {
+    font-size: 5rem;
+  }
+}
     .hero__form.is-hidden { display: none; }
 
     .hero__visual {
@@ -349,6 +430,25 @@
       opacity: 0;
       animation: fadeIn 1.4s var(--ease) 0.5s forwards;
     }
+    @media (max-width: 1024px) {
+
+  .hero__launch-card {
+    position: static;
+
+    transform: none;
+
+    margin-top: 3rem;
+
+    width: 100%;
+    max-width: 280px;
+
+    height: 220px;
+  }
+
+  .hero__launch-number {
+    font-size: 4.5rem;
+  }
+}
 
     .hero__panel--tee img { object-position: center 35%; transform: scale(1.18); }
     .hero__panel--shirt img { object-position: center 42%; transform: scale(1.14); }
@@ -849,6 +949,15 @@
           </form>
           <p class="hero__success" id="waitlist-success" role="status" aria-live="polite">Thank you. We'll keep you informed.</p>
         </div>
+        <div class="hero__launch-card">
+  <p class="hero__launch-label">AUTUMN 2026</p>
+
+  <p class="hero__launch-text">ARRIVING IN</p>
+
+  <div class="hero__launch-number">90</div>
+
+  <p class="hero__launch-days">DAYS</p>
+</div>
       </div>
     </div>
     <div class="hero__visual" aria-hidden="true">
